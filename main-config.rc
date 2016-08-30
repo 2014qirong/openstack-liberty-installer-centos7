@@ -1,0 +1,110 @@
+#!/bin/bash
+#DATABASE SECTION
+
+#Choose the databse flavor, By the moment,we only support mysql and postgres
+dbflavor="mysql"
+dbcreate="yes"
+dbinsatll="yes'
+#access information for MySql
+mysqldbadm="root"
+mysqldbpassword="P@ssw0rd"
+mysqldbport="3306"
+
+#access information for PostgreSQL
+psqldbadm="postgres"
+psqldbpassword="P@ssw0rd"
+psqldbport="5432"
+
+#the following variable indicates the installer to "populate" the openstack databases (cinder,glance,keystone,etc.) . if this is a new installation
+#wheter you use an external database server or not,you should use "yes" here.
+
+dbpopulate="yes"
+#here define the backend server ip address,You can use an ip or a FQDN:
+dbbackendhost="10.98.51.18"
+#MESSAGE BROKER SECTION
+# you must install the message broker in the controller or in the controller-compute but never in compute node
+# if the server is a pure controller or a controller-compute , the variable must be "yes"
+messagebrokerinstall="yes"
+
+messagebrokerhost="10.98.51.18"\
+#we currently support both rabbitmq and qpid as message brokers.Normally you will prefer our default:RABBITMQ. change the broker flavor 
+# to "qpid‘ if you want to use qpid
+brokerflavor="rabbitmq"
+#authentication information for the message broker
+brokeruser="rabbitmq"
+brokerpass="P@ssw0rd"
+brokervhost="/openstack"
+
+#openstack services databases access information
+#keystone
+keystonedbname="keystonedb"
+keystonedbuser="keystonedbuser"
+keystonedbpass="P@ssw0rd"
+#Glance
+glancedbname="glancedb"
+glancedbuser="glancedbuser"
+glancedbpass="P@ssw0rd"
+#Cinder
+cinderdbname="cinderdb"
+cinderdbuser="cinderdbuser"
+cinderdbpass="P@ssw0rd"
+#Neutron
+neutrondbname="neutrondb"
+neutrondbuser="neutrondbuser"
+neutrondbpass="P@ssw0rd"
+#Nova
+novadbname="novadb"
+novadbuser="novadbuser"
+novadbpass="P@ssw0rd"
+#Horizon
+horizondbname="horizondb"
+horizondbuser="horizondbuser"
+horizondbpass="P@ssw0rd"
+#Heat
+heartdbname="heartdb"
+heartdbuser="heartdbuser"
+heartdbpass="P@ssw0rd"
+#Trove
+trovedbname="trovedb"
+trovedbuser="trovedbuser"
+trovedbpass="P@ssw0rd"
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
