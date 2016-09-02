@@ -1,6 +1,7 @@
 #!/bin/bash
 #DATABASE SECTION
 
+
 #Choose the databse flavor, By the moment,we only support mysql and postgres
 dbflavor="mysql"
 dbcreate="yes"
@@ -158,8 +159,19 @@ glusterfsresource="10.98.51.15:/openstack"
 #Openstack Neutron
 # You must install neutron in your opensatck environment
 neutroninstall="yes"
+# if the node you are installing is a neutron node or a controloler node with network node,the following variable must be set "no".If you 
+# are installing a single compute node , the variable must be "yes"
+neutron_in_compute_node="no"
+neutronhost="10.98.51.18"
 
-
+neutronuser="neutron"
+neutronsvce="neutron"
+neutronpass="P@ssw0rd"
+neutronemail="neutron@localhost"
+# this is the most important part of your network configuration .Here ,you must select your network mapping ,Please ,ensure you understand
+#Opensatck network philosophy before you configure this.
+#our defatlt consume a flat network configuration with external routes conected to an openvswitch br-enp0s9 switch.Change those defaults to suit your 
+#network or your system will not have a variable network service 
 
 
 
