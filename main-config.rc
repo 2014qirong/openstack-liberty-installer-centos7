@@ -26,7 +26,7 @@ dbbackendhost="10.98.51.18"
 # if the server is a pure controller or a controller-compute , the variable must be "yes"
 messagebrokerinstall="yes"
 
-messagebrokerhost="10.98.51.18"\
+messagebrokerhost="10.98.51.18"
 #we currently support both rabbitmq and qpid as message brokers.Normally you will prefer our default:RABBITMQ. change the broker flavor 
 # to "qpid‘ if you want to use qpid
 brokerflavor="rabbitmq"
@@ -68,7 +68,155 @@ heartdbpass="P@ssw0rd"
 trovedbname="trovedb"
 trovedbuser="trovedbuser"
 trovedbpass="P@ssw0rd"
-#
+#Openstack Keystone ,in the following section section we define keystone installation options .
+#if this machine is the controller node,keystoneinstall must be "yes"
+keystoneinstall="yes"
+keystonehost="10.98.51.18"
+#Only you are using Mysql as DB backend,If for you chance,you have multipe keystone hosts,put here the IP Address of the extra hosts,space separated.
+extrakeystonehosts=""
+
+SERVICE_TOKEN=“044cb8c9e4a00a418827”
+
+# Please leave Keystone Options following as they are.If you change the default protected config options,You openstack installation will be unusable
+#Protected Keystone config options -Do NOT CHANGE
+
+keystoneadminuser="admin"
+keystoneservicename="keystone"
+keystoneadmintenant="admin"
+keystoneservicestenant="services"
+keystonememberrole="_member_"
+keystoneuserrole="user"
+keystonedomain="default"
+keystonereselleradminrole="ResellerAdmin"
+keystone_admin_rc_file="/root/keystonerc_admin"
+keystone_fulladmin_rc_file="/root/keystonerc_fulladmin"
+#End the protected keystone config options
+
+#Change the remaining following options to fit your cloud infraestructure needs
+keystoneadminusermail="admin@localhost"
+keystoneadminpass="P@ssw0rd"
+#Token Provider Flavor.Two options :pki or uuid. there is something debate in the community about the right flavor.Currently,it seems to be uuid is the default
+keystonetokenflavor="uuid"
+endpointsregion="RegionOne"
+#Extra Tenants: Those are sample tenants ,The inital password will be the Tenants name
+extratenantbasepass="P@ssw0rd"
+extratenants="extra1 extra2 extra3"
+domainextratenants="localhost"
+
+#Openstack Swift
+swiftinstall="no"
+swifthost="10.98.51.18"
+swiftuser="swif"
+swiftsvce="swift"
+swiftpass="P@ssw0rd"
+swiftmail="swift@localhost"
+
+#Openstack Glance
+#if you are installing a controller, and want to use glance,you must use "yes" in order to install glance, if it is a compute,use "no":
+glanceinstall="yes"
+#The host ip is normally the one of the controller and you must specify it either if you are instaling the controller or a compute node.
+# this is normally the controller IP address or FQDN if you prefer to use DNS ,also to remember to change the password
+
+glancehost="10.98.51.18"
+glanceuser="glance"
+glancesvce="glance"
+glancepass="P@ssw0rd"
+glanceemail="glance@localhost"
+
+# if you want ,we can install the cirrors test image,they are very useful in order to test Openstack cloud service , Our default :yes
+glancecirroscreate="yes"
+#only if you are using Mysql as DB backend, if for any chance,you have multiple glance hosts,put here the Ip address of the extra hosts,
+#space seperate .Normally ,this is not necessary unless your mysql service access policies are very strict
+extraglancehosts=""
+
+# Openstack Cinder
+# if you want to install a controller , and want to use cinder,you must use "yes"in order to install cinder , if it is a compute,use "no
+cinderinstall="yes"
+#the host ip is normally the one of the controller and you must specify it either if you are installing the controller or a compute node,this is 
+#normally the controller ip address or FQDN if you prefer to use DNS.Also,remember to change the password and e-mail
+cinderhost="10.98.51.18"
+cinderuser="cinder"
+cindersvce="cinder"
+cinderpass="P@ssw0rd"
+cinderemail="cinder@localhost"
+
+# if you want to include the lvm backend,leave the following variable at "tes",Otherwise,put "no"here:
+cinderconfiglvm="yes"
+#Our default is to use iscsi,Put here the iscsi server IP,it can be the one of the controller,if you are using a LVM "cinder-volumes" inside the controller
+cinder_iscsi_ip_address="10.98.51.18"
+cinder_volumename="cinder_volumes"
+# Only if you are using MySql as DB backend, if for any chance,you have multiple cinder hosts,Put here the ip address of the extra hosts,space seperate
+extracinderhosts=""
+
+cindercleanatuninstall="yes"
+# if you want to include glusterfs backend,change the following vaiable to "yes"
+cinderconfigglusterfs="yes"
+#Also ,change the gluster resource for openstack,Tipically , an IP or FQDN followed by ":/" and the resource name:
+glusterfsresource="10.98.51.15:/openstack"
+# if  you want to include nfs backend ,change the variable to "yes"
+
+#Openstack Neutron
+# You must install neutron in your opensatck environment
+neutroninstall="yes"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
